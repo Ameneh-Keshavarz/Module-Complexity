@@ -20,3 +20,17 @@ class LinkedList:
 
         self.head = new_node
         return new_node  
+    
+    def pop_tail(self):
+        if not self.tail:
+            return None
+
+        value = self.tail.value
+        if self.tail.previous:
+            self.tail = self.tail.previous
+            self.tail.next = None
+        else: # Only one element exists in list
+            self.head = None
+            self.tail = None
+
+        return value
